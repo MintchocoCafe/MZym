@@ -402,11 +402,7 @@
                 %>
                 
                 
-				<!-- 
-					후기에서 많은 양에 결과를 조회 했는데 출력을 안하다 보니 페이징 과 매칭이 안됨
-					
-					pt후기 일때와 아닐떄를 나누어서 페이징 처리해야됨
-			 	-->
+			
 				<!-- 게시판 페이징 -->
 				<% if(categoryNum != numPT) { // 카테고리 게시판이 pt후기가 아닐 경우 %>
 					
@@ -513,6 +509,7 @@
                     })
 
                     const te = document.querySelectorAll("textarea");
+                    const put = document.querySelectorAll("input");
 
                     $(document).keydown(function(e){
                             const val = e.key;
@@ -520,6 +517,12 @@
 
                             for (let i =0; i < te.length; i++){
                                 if((te[i] === document.activeElement)){
+                                    check = false;
+                                }
+                            }
+
+                            for (let i=0; i< put.length; i++){
+                                if((put[i] == document.activeElement)){
                                     check = false;
                                 }
                             }
@@ -613,10 +616,10 @@
 					        <!-- Modal Header -->
 					        <div class="modal-header">
 					          <h3 class="modal-title">게시물 이동</h3>
-					          <button type="button" class="close" data-dismiss="modal">&times;</button>
+					          <button type="button" class="close">&times;</button>
 					        </div>
 					  
-					        <!-- Modal body -->
+					    <!-- Modal body -->
 					    <form action="<%=mzymPath%>/moveBoard.trainer" method="post">
 					        <div class="modal-body">
 					        <div class="in-line">
@@ -671,6 +674,16 @@
                                 }
                                 return ture;
                             }
+                            
+
+                            // $(".close").click(function(){
+
+                            // $("#myModal").find("input[name=reportNo]").val('');
+                            // $("#myModal").find("input[name=text]").val('');   
+                            // $("#myModal").find("input[name=reporter]").val('');  
+
+                            //     $('#myModal').modal("hide");
+                            // })
 
 					    </script>
 					  

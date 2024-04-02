@@ -100,7 +100,7 @@ public class BoardService {
 		Connection conn = getConnection();
 		
 		int outcome = dao.updateNotice(conn, n);
-		System.out.println("outcome" + outcome);
+//		System.out.println("outcome" + outcome);
 		int result = 1;
 		
 		/*

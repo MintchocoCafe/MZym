@@ -185,15 +185,17 @@
 
             // 키보드 값을 입력 받을떄 해당 위치의 collapse 등장
             const te = document.querySelectorAll("textarea");
+            const put = document.querySelectorAll("input");
 
+            // 문서전체 선택
             $(document).keydown(function(e){
-                    // console.log($("#boardcontent tr")); 
-                    // console.log(e.key); 
-                    // console.log(Number(e.key) * 2); 
-                    // console.log($("#boardcontent tr").eq(Number(e.key) * 2));
+                    console.log($("#boardcontent tr")); 
+                    console.log(e.key); 
+                    console.log(Number(e.key) * 2); 
+                    console.log($("#boardcontent tr").eq(Number(e.key) * 2));
                     const val = e.key;
                     let check = true;
-                    // console.log("키보드 값" + val);
+                    console.log("키보드 값" + val);
 
                     for (let i =0; i < te.length; i++){
                         if((te[i] === document.activeElement)){
@@ -201,14 +203,23 @@
                         }
                     }
 
+                    for (let i=0; i< put.length; i++){
+                                if((put[i] == document.activeElement)){
+                                    check = false;
+                                }
+                    }
+
                     if(check){
                         let $t = null;
                         if(val != 0){
-                            $t = $("#boardcontent tr").eq(Number(val) * 2);   
+                            //collapse클래스가 들어가 있는 tr
+                            $t = $("#boardcontent tr").eq(Number(val) * 2);
+                            // 바로 뒤에  tr이 선택되도록 구현
                         } else if (val == 0){
                             $t = $("#boardcontent tr").eq(20);
                         }
 
+                        // 스타일 변경 및 클래스 부여 
                         $t.css('border', '3px solid #1abc9cc7');
                             $t.addClass('show');
 

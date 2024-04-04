@@ -799,8 +799,8 @@ public class BoardDao {
 		
 		try {
 			pst = conn.prepareStatement(prop.getProperty("boardMoving"));
-			System.out.println((int)hash.get("selectNo"));
-			System.out.println((int)hash.get("reportNo"));
+//			System.out.println((int)hash.get("selectNo"));
+//			System.out.println((int)hash.get("reportNo"));
 			pst.setInt(1, (int)hash.get("selectNo"));
 			pst.setInt(2, (int)hash.get("reportNo"));
 			result = pst.executeUpdate();
